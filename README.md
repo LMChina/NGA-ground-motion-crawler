@@ -74,4 +74,4 @@ This script utilizes the following libraries:
 - selenium
 - numpy
 
-Special thanks to the Pacific Earthquake Engineering Research Center (PEER) at the University of California, Berkeley, for developing and maintaining the NGA West 2 database.
+Special thanks to the Pacific Earthquake Engineering Research Center (PEER) at the University of California, Berkeley, for developing and maintaining the NGA West 2 database. Also, thanks to the WeChat public account "非构解" for providing basic knowledge on this topic.
