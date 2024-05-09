@@ -21,7 +21,7 @@ pip install -r requirements.txt
 
 1. Obtain a valid NGA West 2 account and its credentials (email and password).
 2. Download the NGA West 2 flatfile containing ground motion data information from the PEER website (https://peer.berkeley.edu/research/data-sciences/databases).
-3. Run the script with the necessary arguments:
+3. Run the script with the necessary arguments or in your IDE:
 
 ```
 python nga_west2_download.py --email your_email@example.com --password your_password --flatfile flatfile.xlsx --browser edge --directions horizontal1 horizontal2 vertical
