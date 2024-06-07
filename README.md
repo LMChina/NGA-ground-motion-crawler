@@ -1,6 +1,6 @@
-# NGAWest2-ground-motion-crawler
+# NGA-ground-motion-crawler
 
-This Python script automates the process of downloading ground motion data files from the NGA West 2 database (https://ngawest2.berkeley.edu/), developed by the Pacific Earthquake Engineering Research Center (PEER) at the University of California, Berkeley.
+This Python script automates the process of downloading ground motion data files from the NGA West 2 database (https://ngawest2.berkeley.edu/), and NGA Subduction database (https://www.risksciences.ucla.edu/nhr3/nga-subduction)
 
 ## Prerequisites
 
@@ -19,16 +19,10 @@ pip install -r requirements.txt
 
 ## Usage
 
-1. Obtain a valid NGA West 2 account and its credentials (email and password).
-2. Download the NGA West 2 flatfile containing ground motion data information from the PEER website (https://peer.berkeley.edu/research/data-sciences/databases).
-3. Run the script with the necessary arguments or in your IDE:
-
-```
-python nga_west2_download.py --email your_email@example.com --password your_password --flatfile flatfile.xlsx --browser edge --directions horizontal1 horizontal2 vertical
-```
-
-Replace the placeholders with your actual email, password, flatfile name, browser type (edge or chrome), and desired ground motion directions (horizontal1, horizontal2, vertical).
-
+1. Obtain a valid NGA West2 or NGA Subduction account and its credentials (email and password).
+2. Download the NGA West2 flatfile containing ground motion data information from the PEER website (https://peer.berkeley.edu/research/data-sciences/databases).
+3. Download the NGA Subduction flatfile containing ground motion data information from the NHR3 website (https://www.risksciences.ucla.edu/nhr3/nga-subduction/psa-tables-r230104).
+3. Run the example script with the necessary arguments or in your IDE:
 4. The script will automate the download process, extract the acceleration data, and save it as a CSV file named `acceleration_data.csv` in the current working directory.
 
 ## Example
@@ -36,24 +30,30 @@ Replace the placeholders with your actual email, password, flatfile name, browse
 Here's an example of how to use the script:
 
 ```python
-from nga_west2_ground_motion_download import NGAWest2GroundMotionDownload
+from nga_ground_motion_download import NGAGroundMotionDownload
 
 # Enter your email and password for NGA West2 website
-email = 'your_email_address@provider.com'
-password = 'your_password'
-
-# The flatfile must be filtered to only include the desired ground motions which less than the maximum records
-# limitation: The current limit is set at approximately 200 records every two weeks, 400 every month
-flatfile_name = 'Updated_NGA_West2_Flatfile_RotD50_d005_public_version.xlsx'
+database = 'nga sub'
+if database == 'nga west2':
+    email = 'your_email@xxx.com'
+    password = 'your_password'
+    flatfile_name = 'Updated_NGA_West2_Flatfile_RotD50_d005_public_version.xlsx'
+    rsn = [1]
+else:
+    email = 'your_email@xxx.com'
+    password = 'your_password'
+    flatfile_name = 'NGAsubDb_PSA_RotD50_050_public_R230104.csv'
+    rsn = [1000001]
 
 # Choose the browser type to use for downloading the ground motions. Options are 'chrome' and 'edge'
 browser_type = 'edge'
 
 # Choose the ground motions to download. Options are 'horizontal 1', 'horizontal 2','vertical'
-gm_directions = ['horizontal 1', 'horizontal 2', 'vertical']
+gm_directions = ['horizontal 1']
+# gm_directions = ['horizontal 1', 'horizontal 2','vertical']
 
 # Run the download script
-NGAWest2GroundMotionDownload.run_download_script(email, password, flatfile_name, browser_type, gm_directions)
+NGAGroundMotionDownload.run_download_script(email, password, flatfile_name, browser_type, gm_directions, rsn, database)
 ```
 
 This example demonstrates how to create an instance of the `NGAWest2GroundMotionDownload` class and run the `run_download_script` method to initiate the download process.
@@ -74,4 +74,4 @@ This script utilizes the following libraries:
 - selenium
 - numpy
 
-Special thanks to the Pacific Earthquake Engineering Research Center (PEER) at the University of California, Berkeley, for developing and maintaining the NGA West 2 database. Also, thanks to the WeChat public account "非解构" for providing basic knowledge on this topic.
+Special thanks to the Pacific Earthquake Engineering Research Center (PEER) at the University of California, Berkeley, for developing and maintaining the NGA West 2 database, and Natural Hazards Risk and Resiliency Research Center (NHR3) for developing and maintaining the NGA Subduction database. Also, thanks to the WeChat public account "非解构" for providing basic knowledge on this topic.
