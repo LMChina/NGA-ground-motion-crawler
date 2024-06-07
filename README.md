@@ -20,13 +20,11 @@ pip install -r requirements.txt
 ## Usage
 
 1. Obtain a valid NGA West2 or NGA Subduction account and its credentials (email and password).
-2. Download the NGA West2 flatfile containing ground motion data information from the PEER website (https://peer.berkeley.edu/research/data-sciences/databases).
-3. Download the NGA Subduction flatfile containing ground motion data information from the NHR3 website (https://www.risksciences.ucla.edu/nhr3/nga-subduction/psa-tables-r230104).
+2. Download the NGA West2 and NGA Subduction flatfile (https://peer.berkeley.edu/research/data-sciences/databases), and (https://www.risksciences.ucla.edu/nhr3/nga-subduction/psa-tables-r230104) respectively. An example of the flatfile also can be downloaded from https://drive.google.com/drive/folders/1AIu7K_h1-9vWdtB2-W-BNP1qelUqFGmb?usp=sharing
 3. Run the example script with the necessary arguments or in your IDE:
 4. The script will automate the download process, extract the acceleration data, and save it as a CSV file named `acceleration_data.csv` in the current working directory.
 
 ## Example
-
 Here's an example of how to use the script:
 
 ```python
