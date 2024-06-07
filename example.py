@@ -3,13 +3,13 @@ from nga_ground_motion_download import NGAGroundMotionDownload
 # Enter your email and password for NGA West2 website
 database = 'nga sub'
 if database == 'nga west2':
-    email = 'limao0632@163.com'
-    password = 'limao123'
+    email = 'your_email@xxx.com'
+    password = 'your_password'
     flatfile_name = 'Updated_NGA_West2_Flatfile_RotD50_d005_public_version.xlsx'
     rsn = [1]
 else:
-    email = 'limao0632@gmail.com'
-    password = 'qwer1234'
+    email = 'your_email@xxx.com'
+    password = 'your_password'
     flatfile_name = 'NGAsubDb_PSA_RotD50_050_public_R230104.csv'
     rsn = [1000001]
 
