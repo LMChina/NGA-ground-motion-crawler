@@ -126,7 +126,7 @@ class NGAGroundMotionDownload:
         browser.get(url)
 
         # wait for the page to load
-        browser.implicitly_wait(10)
+        browser.implicitly_wait(100)
 
         if self.database_name == 'nga west2':
             # Login
